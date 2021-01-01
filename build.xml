@@ -1,0 +1,21 @@
+<?xml version = "1.0"?>
+<project name = "santa" default = "build">
+  <property name = "build.dir" value = "build" /> 
+  <property name = "src.dir" value = "src" /> 
+
+   <path id = "master-classpath">
+      <fileset dir = "lib">
+         <include name = "*.jar"/>
+      </fileset>
+      
+      <pathelement path = "${build.dir}"/>
+   </path>
+  <target name = "build">
+    <mkdir dir = "${build.dir}" />
+    
+    <javac includeantruntime = "false" destdir = "${build.dir}" source = "1.7" target = "1.7">
+      <src path = "${src.dir}" />
+      <classpath refid="master-classpath" />
+    </javac> 
+  </target>
+</project>
